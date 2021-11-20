@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.table-row {
+  background-color: #dddddd;
+}
+
+.table-row-alt {
+  background-color: white;
+}
+

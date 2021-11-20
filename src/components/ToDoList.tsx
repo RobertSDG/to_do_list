@@ -40,7 +40,8 @@ class ToDoList extends React.Component<{ items: Item[] }, {}> {
           {sortedItems.map((i, index) => (
             <tr
               key={`${i.task}_${i.priority}`}
-              style={{ backgroundColor: index % 2 === 0 ? "#dddddd" : "white" }}
+            //   style={{ backgroundColor: index % 2 === 0 ? "#dddddd" : "white" }}
+              className={index % 2 === 0 ? "table-row" : "table-row-alt"}
             >
               <td>{i.task}</td>
               <td>{i.priority}</td>
