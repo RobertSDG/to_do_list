@@ -2,7 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import ToDoList, { Item } from "./components/ToDoList";
-
+import AddItem from './components/AddItem';
 const initialList = [
   {
     task: "Pick up Milk",
@@ -18,18 +18,36 @@ const initialList = [
   },
 ];
 
+const isPartOf = (item: Item, items: Item[]): boolean => {
+  return items.some((it) => it.priority === item.priority);
+};
+
 class App extends React.Component<{}, { items: Item[] }> {
   constructor(props: any) {
     super(props);
     this.state = {
       items: initialList,
     };
+    this.addItem = this.addItem.bind(this);
+  }
+
+  addItem(item: Item) {
+    const { items } = this.state;
+
+    if (isPartOf(item, items)) {
+      alert(`Item with priorirty: ${item.priority} exists`);
+      return;
+    }
+    this.setState({
+      items: items.concat(item),
+    });
   }
 
   render() {
     const { items } = this.state;
     return (
       <div className="App">
+        <AddItem addItem={this.addItem} />
         <br />
         <ToDoList items={items} />
       </div>
