@@ -5,7 +5,7 @@ import ToDoList, { Item } from "./components/ToDoList";
 import AddItem from './components/AddItem';
 const initialList = [
   {
-    task: "Pick up Milk",
+    task: "Pick up the Milk",
     priority: 1,
   },
   {
